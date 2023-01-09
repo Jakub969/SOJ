@@ -18,7 +18,7 @@ WriteMatrix PROC USES EAX EBX ECX ESI EDI matrixOffset:DWORD, rows:DWORD, column
 		xor EDI, EDI
 
 		LoopColumns:
-			movsx EAX, word ptr [EBX + EDI]
+			movzx EAX, word ptr [EBX + EDI]; movzx - èísla bez znamienka, movsx - èísla so znamienkom
 			call WriteInt
 			add EDI, bytesInCell
 			loop LoopColumns
